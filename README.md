@@ -1,4 +1,4 @@
-Yii 2 Basic Application Template
+Yii2 Basic Application Template
 ================================
 Yii 2 Basic comes without any login or register functionality with MySql DB as like
 Advanced Template. This is a full login registration system with mysql for Yii2 
