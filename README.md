@@ -1,5 +1,8 @@
 Yii 2 Basic Application Template
 ================================
+Yii 2 Basic comes without any login or register functionality with MySql DB as like
+Advanced Template. This is a full login registration system with mysql for Yii2 
+Basic Template with pretty url.
 
 Yii 2 Basic Application Template is a skeleton Yii 2 application best for
 rapidly creating small projects.
@@ -35,36 +38,16 @@ The minimum requirement by this application template that your Web server suppor
 INSTALLATION
 ------------
 
-### Install from an Archive File
-
-Extract the archive file downloaded from [yiiframework.com](http://www.yiiframework.com/download/) to
-a directory named `basic` that is directly under the Web root.
-
-You can then access the application through the following URL:
+=> Download the file
+=> Run composer update
+=> Configure DB
 
 ~~~
-http://localhost/basic/web/
+http://localhost/Yii2-Basic-Tempate-Register-Login/web/
 ~~~
 
-
-### Install via Composer
-
-If you do not have [Composer](http://getcomposer.org/), you may install it by following the instructions
-at [getcomposer.org](http://getcomposer.org/doc/00-intro.md#installation-nix).
-
-You can then install this application template using the following command:
-
-~~~
-php composer.phar global require "fxp/composer-asset-plugin:1.0.0"
-php composer.phar create-project --prefer-dist --stability=dev yiisoft/yii2-app-basic basic
 ~~~
 
-Now you should be able to access the application through the following URL, assuming `basic` is the directory
-directly under the Web root.
-
-~~~
-http://localhost/basic/web/
-~~~
 
 
 CONFIGURATION
@@ -77,13 +60,26 @@ Edit the file `config/db.php` with real data, for example:
 ```php
 return [
     'class' => 'yii\db\Connection',
-    'dsn' => 'mysql:host=localhost;dbname=yii2basic',
+    'dsn' => 'mysql:host=localhost;dbname=basic',
     'username' => 'root',
-    'password' => '1234',
+    'password' => '',
     'charset' => 'utf8',
 ];
 ```
 
-**NOTE:** Yii won't create the database for you, this has to be done manually before you can access it.
+Here are the user table used for this system
 
-Also check and edit the other files in the `config/` directory to customize your application.
+CREATE TABLE IF NOT EXISTS `user` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `auth_key` varchar(32) COLLATE utf8_unicode_ci NOT NULL,
+  `password_hash` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `password_reset_token` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `status` smallint(6) NOT NULL DEFAULT '10',
+  `created_at` int(11) NOT NULL,
+  `updated_at` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+
