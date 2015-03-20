@@ -66,7 +66,7 @@ return [
     'charset' => 'utf8',
 ];
 ```
-
+```
 Here are the user table used for this system
 
 CREATE TABLE IF NOT EXISTS `user` (
@@ -81,5 +81,5 @@ CREATE TABLE IF NOT EXISTS `user` (
   `updated_at` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
-
+```
 
